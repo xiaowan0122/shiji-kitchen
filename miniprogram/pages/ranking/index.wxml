@@ -1,0 +1,41 @@
+<view class="page">
+  <loading-state show="{{loading}}" />
+  <view wx:if="{{!loading}}">
+    <view class="seg">
+      <view
+        wx:for="{{periods}}"
+        wx:key="key"
+        class="seg-item {{period === item.key ? 'on' : ''}}"
+        data-key="{{item.key}}"
+        bindtap="onPeriod"
+      >{{item.label}}</view>
+    </view>
+    <view class="seg second">
+      <view
+        wx:for="{{metrics}}"
+        wx:key="key"
+        class="seg-item {{metric === item.key ? 'on' : ''}}"
+        data-key="{{item.key}}"
+        bindtap="onMetric"
+      >{{item.label}}</view>
+    </view>
+
+    <view class="scope muted">{{isFamily ? '家庭空间' : '个人空间'}}</view>
+    <view class="card row space-between">
+      <text class="title">成本统计</text>
+      <text class="cost">¥{{costTotal}}</text>
+    </view>
+
+    <view class="card">
+      <view wx:for="{{entries}}" wx:key="recipeId" class="entry" data-id="{{item.recipeId}}" bindtap="onOpen">
+        <view class="rank rank-{{index < 3 ? index + 1 : 'n'}}">{{index + 1}}</view>
+        <view class="grow entry-name">{{item.name}}</view>
+        <view class="entry-val">
+          <text wx:if="{{metric === 'rating'}}">{{item.value}} 分</text>
+          <text wx:else>{{item.value}} 次</text>
+        </view>
+      </view>
+      <empty-state wx:if="{{entries.length === 0}}" text="暂无排行数据" />
+    </view>
+  </view>
+</view>

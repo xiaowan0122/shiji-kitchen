@@ -1,5 +1,24 @@
-// 临时占位：阶段1接入正式 TS 类型（miniprogram-api-typings）后移除本行
-// @ts-nocheck
-App({
-  globalData: {}
+import { repo } from './repositories/index'
+import type { User } from './types/workspace'
+
+interface AppGlobalData {
+  currentWorkspaceId: string
+  user: User | null
+}
+
+interface AppMethods {
+  onLaunch(): void
+}
+
+App<AppGlobalData, AppMethods>({
+  globalData: {
+    currentWorkspaceId: repo.getCurrentWorkspaceId(),
+    user: repo.getUser()
+  },
+  onLaunch() {
+    this.globalData = {
+      currentWorkspaceId: repo.getCurrentWorkspaceId(),
+      user: repo.getUser()
+    }
+  }
 })

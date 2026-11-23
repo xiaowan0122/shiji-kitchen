@@ -1,0 +1,65 @@
+.purchase {
+  margin-bottom: var(--space-sm);
+}
+.pur-row {
+  margin-top: var(--space-sm);
+}
+.w-3 {
+  width: 120rpx;
+  flex-shrink: 0;
+}
+.gap {
+  gap: var(--space-sm);
+}
+.sm {
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+}
+.remind-bar {
+  background: #FDF1E6;
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+.remind-title {
+  display: block;
+  color: var(--color-accent);
+  font-size: 24rpx;
+  margin-bottom: 6rpx;
+}
+.remind-item {
+  color: var(--color-text);
+  font-size: 24rpx;
+  margin-right: 16rpx;
+}
+.chips {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-sm);
+}
+.chip {
+  padding: 10rpx 24rpx;
+  margin: 0 12rpx 12rpx 0;
+  border-radius: 999rpx;
+  background: var(--color-white);
+  color: var(--color-muted);
+  font-size: 24rpx;
+}
+.chip.on {
+  background: var(--color-primary-deep);
+  color: #FFFFFF;
+}
+.tx {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10rpx 0;
+  border-bottom: 1rpx solid var(--color-cream-deep);
+}
+.tx:last-child {
+  border-bottom: none;
+}
+.tx-name {
+  font-size: 26rpx;
+}

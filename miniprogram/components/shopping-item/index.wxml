@@ -1,0 +1,7 @@
+<view wx:if="{{item}}" class="si row" bindtap="onToggle">
+  <view class="box {{item.checked ? 'checked' : ''}}">{{item.checked ? '✓' : ''}}</view>
+  <view class="grow">
+    <view class="si-name {{item.checked ? 'done' : ''}}">{{item.name}}</view>
+    <view class="si-amount">{{item.amount}}{{item.unit}}</view>
+  </view>
+</view>

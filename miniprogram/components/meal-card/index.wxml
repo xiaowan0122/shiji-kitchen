@@ -1,0 +1,8 @@
+<view wx:if="{{item}}" class="mc row" bindtap="onTap">
+  <view class="mc-type">{{mealLabel}}</view>
+  <view class="grow">
+    <view class="mc-name">{{item.recipeName}}</view>
+    <view wx:if="{{item.requestedBy}}" class="mc-note">点菜：{{item.requestedBy}}</view>
+  </view>
+  <view class="mc-status status-{{item.status}}">{{item.status}}</view>
+</view>

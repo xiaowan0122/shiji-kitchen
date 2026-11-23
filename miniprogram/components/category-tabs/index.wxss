@@ -1,0 +1,19 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  padding: 8rpx 0 20rpx;
+}
+.tab {
+  display: inline-block;
+  padding: 12rpx 28rpx;
+  margin-right: 16rpx;
+  border-radius: 999rpx;
+  background: var(--color-cream-deep);
+  color: var(--color-muted);
+  font-size: 26rpx;
+}
+.tab.active {
+  background: var(--color-primary-deep);
+  color: #FFFFFF;
+}

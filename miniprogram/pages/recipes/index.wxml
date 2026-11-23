@@ -1,0 +1,27 @@
+<view class="page">
+  <loading-state show="{{loading}}" />
+  <view wx:if="{{!loading}}">
+    <view class="row">
+      <input
+        class="input grow"
+        placeholder="搜索菜谱"
+        value="{{keyword}}"
+        bindinput="onSearchInput"
+      />
+      <button class="btn btn-accent add" bindtap="onAdd">新建</button>
+    </view>
+    <category-tabs categories="{{categories}}" active="{{activeCategory}}" bindchoose="onChooseCategory" />
+
+    <scroll-view class="tags" scroll-x>
+      <view
+        wx:for="{{tags}}"
+        wx:key="*this"
+        class="chip {{activeTag === item ? 'on' : ''}}"
+        data-id="{{item}}"
+        bindtap="onChooseTag"
+      >{{item}}</view>
+    </scroll-view>
+
+    <recipe-grid recipes="{{recipes}}" bindopen="onOpen" bindfav="onFav" />
+  </view>
+</view>

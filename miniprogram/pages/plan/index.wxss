@@ -1,0 +1,55 @@
+.cal-actions {
+  margin: var(--space-sm) 0;
+}
+.sel-date {
+  color: var(--color-primary-deep);
+  font-size: 26rpx;
+}
+.slot {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+.slot-label {
+  width: 90rpx;
+  flex-shrink: 0;
+  color: var(--color-primary-deep);
+  font-size: 26rpx;
+  font-weight: 600;
+}
+.slot-empty {
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  color: var(--color-muted);
+  font-size: 24rpx;
+}
+.slot-actions {
+  flex-shrink: 0;
+  margin-left: 8rpx;
+}
+.mini {
+  font-size: 22rpx;
+  color: var(--color-primary-deep);
+  background: var(--color-cream-deep);
+  border-radius: 999rpx;
+  padding: 8rpx 16rpx;
+  margin-left: 8rpx;
+}
+.mini.accent {
+  color: var(--color-accent);
+}
+.day-group {
+  margin-bottom: var(--space-md);
+}
+.day-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8rpx 4rpx;
+}
+.day-date {
+  font-size: 28rpx;
+  font-weight: 600;
+}

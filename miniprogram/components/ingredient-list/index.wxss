@@ -1,0 +1,20 @@
+.il-row {
+  padding: 14rpx 0;
+}
+.il-name {
+  color: var(--color-text);
+  font-size: 28rpx;
+}
+.il-amount {
+  color: var(--color-muted);
+  font-size: 26rpx;
+  margin-left: 12rpx;
+}
+.badge {
+  margin-left: 12rpx;
+  font-size: 20rpx;
+  color: var(--color-muted);
+  background: var(--color-cream-deep);
+  border-radius: 999rpx;
+  padding: 4rpx 12rpx;
+}

@@ -1,0 +1,5 @@
+<view class="qs">
+  <button class="qs-btn" bindtap="onMinus">－</button>
+  <text class="qs-val">{{value}}</text>
+  <button class="qs-btn" bindtap="onPlus">＋</button>
+</view>

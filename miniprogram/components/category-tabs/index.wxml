@@ -1,0 +1,9 @@
+<scroll-view class="tabs" scroll-x>
+  <view
+    wx:for="{{categories}}"
+    wx:key="id"
+    class="tab {{active === item.id ? 'active' : ''}}"
+    data-id="{{item.id}}"
+    bindtap="onSelect"
+  >{{item.name}}</view>
+</scroll-view>

@@ -1,0 +1,22 @@
+.rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.stars {
+  display: flex;
+  flex-direction: row;
+}
+.star {
+  color: var(--color-cream-deep);
+  font-size: 28rpx;
+  margin-right: 4rpx;
+}
+.star.on {
+  color: var(--color-accent);
+}
+.count {
+  margin-left: 8rpx;
+  color: var(--color-muted);
+  font-size: 22rpx;
+}

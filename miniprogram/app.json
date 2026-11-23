@@ -1,12 +1,48 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/recipes/index",
+    "pages/plan/index",
+    "pages/kitchen/index",
+    "pages/profile/index",
+    "pages/recipe-detail/index",
+    "pages/recipe-edit/index",
+    "pages/ranking/index",
+    "pages/workspace/index"
   ],
   "window": {
     "navigationBarTitleText": "食记 Kitchen",
-    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarBackgroundColor": "#FAF7F0",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#ffffff"
+    "backgroundColor": "#FAF7F0"
+  },
+  "tabBar": {
+    "color": "#9A968E",
+    "selectedColor": "#7FA376",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/recipes/index",
+        "text": "菜谱"
+      },
+      {
+        "pagePath": "pages/plan/index",
+        "text": "计划"
+      },
+      {
+        "pagePath": "pages/kitchen/index",
+        "text": "厨房"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

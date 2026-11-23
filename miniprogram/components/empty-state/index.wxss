@@ -1,0 +1,23 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80rpx 0;
+  color: var(--color-muted);
+}
+.icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: var(--color-cream-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  color: var(--color-primary-deep);
+  margin-bottom: 16rpx;
+}
+.text {
+  font-size: 26rpx;
+}

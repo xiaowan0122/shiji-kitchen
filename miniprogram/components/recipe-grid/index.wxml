@@ -1,0 +1,18 @@
+<empty-state wx:if="{{recipes.length === 0}}" text="{{emptyText}}" />
+<view class="grid" wx:else>
+  <view wx:for="{{recipes}}" wx:key="id" class="cell">
+    <recipe-card
+      id="{{item.id}}"
+      name="{{item.name}}"
+      cover-url="{{item.coverUrl}}"
+      category-id="{{item.categoryId}}"
+      tags="{{item.tags}}"
+      rating="{{item.rating.average}}"
+      servings="{{item.servings}}"
+      time-min="{{item.prepTime + item.cookTime}}"
+      is-favorite="{{item.isFavorite}}"
+      bindopen="onTap"
+      bindfav="onFav"
+    />
+  </view>
+</view>

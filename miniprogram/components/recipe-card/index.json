@@ -1,0 +1,1 @@
+{ "component": true, "usingComponents": { "rating-stars": "../rating-stars/index" } }

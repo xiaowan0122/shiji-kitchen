@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "计划",
+  "usingComponents": {
+    "calendar": "../../components/calendar/index",
+    "meal-card": "../../components/meal-card/index",
+    "loading-state": "../../components/loading-state/index",
+    "empty-state": "../../components/empty-state/index"
+  }
+}

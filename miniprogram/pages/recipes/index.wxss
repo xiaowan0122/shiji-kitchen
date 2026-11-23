@@ -1,0 +1,23 @@
+.add {
+  margin-left: var(--space-sm);
+  flex-shrink: 0;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  padding-bottom: var(--space-sm);
+}
+.chip {
+  display: inline-block;
+  padding: 10rpx 24rpx;
+  margin-right: 12rpx;
+  border-radius: 999rpx;
+  background: var(--color-white);
+  color: var(--color-muted);
+  font-size: 24rpx;
+}
+.chip.on {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}

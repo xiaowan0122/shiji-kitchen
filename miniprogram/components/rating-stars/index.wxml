@@ -1,0 +1,6 @@
+<view class="rating">
+  <view class="stars">
+    <text wx:for="{{stars}}" wx:key="index" class="star {{item ? 'on' : ''}}">★</text>
+  </view>
+  <text wx:if="{{showCount}}" class="count">{{value}}·{{count}}评</text>
+</view>

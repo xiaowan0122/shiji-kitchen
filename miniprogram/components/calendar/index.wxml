@@ -1,0 +1,19 @@
+<view class="cal">
+  <view class="cal-head row space-between">
+    <view class="cal-nav" bindtap="onPrev">‹</view>
+    <text class="cal-label">{{label}}</text>
+    <view class="cal-nav" bindtap="onNext">›</view>
+  </view>
+  <view class="cal-week row">
+    <text wx:for="{{weekdays}}" wx:key="*this" class="cal-wd">{{item}}</text>
+  </view>
+  <view class="cal-grid">
+    <view
+      wx:for="{{cells}}"
+      wx:key="date"
+      class="cal-day {{item.inMonth ? '' : 'dim'}} {{selected === item.date ? 'active' : ''}}"
+      data-date="{{item.date}}"
+      bindtap="onSelect"
+    >{{item.day}}</view>
+  </view>
+</view>

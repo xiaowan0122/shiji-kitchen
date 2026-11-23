@@ -1,0 +1,42 @@
+<view class="page">
+  <loading-state show="{{loading}}" />
+  <view wx:if="{{!loading}}">
+    <view class="card">
+      <text class="title">空间</text>
+      <view class="ws-wrap">
+        <workspace-switcher workspaces="{{workspaces}}" current-id="{{workspaceId}}" bindchange="onSwitchWs" />
+      </view>
+      <view class="muted type-hint">{{isFamily ? '家庭空间 · 可共享与邀请' : '个人空间 · 仅自己可见'}}</view>
+    </view>
+
+    <view class="card">
+      <view class="row space-between">
+        <text class="title">成员（{{members.length}}）</text>
+        <text class="link" bindtap="onManageMember">管理</text>
+      </view>
+      <view wx:for="{{members}}" wx:key="openid" class="member">
+        <view class="grow row">
+          <view class="avatar">{{item.avatarChar}}</view>
+          <text class="mname">{{item.nickname}}</text>
+        </view>
+        <text class="role role-{{item.role}}">{{item.role}}</text>
+      </view>
+      <empty-state wx:if="{{members.length === 0}}" text="暂无成员" />
+    </view>
+
+    <view class="card">
+      <text class="title">邀请成员</text>
+      <view class="muted hint">生成一次性邀请码，成员输入后加入家庭空间。</view>
+      <button class="btn btn-block" bindtap="onInvite">生成邀请码</button>
+    </view>
+  </view>
+
+  <view class="mask" wx:if="{{showInvite}}" bindtap="onCloseInvite">
+    <view class="modal" catchtap="">
+      <text class="modal-title">邀请码</text>
+      <text class="code">{{invite.code}}</text>
+      <text class="muted">有效期至 {{invite.expiresAt}}</text>
+      <button class="btn btn-block" bindtap="onCopyCode">复制并关闭</button>
+    </view>
+  </view>
+</view>

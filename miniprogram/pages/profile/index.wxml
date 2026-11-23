@@ -1,0 +1,43 @@
+<view class="page">
+  <loading-state show="{{loading}}" />
+  <view wx:if="{{!loading}}">
+    <view class="user card">
+      <view class="avatar">{{avatarChar}}</view>
+      <view class="grow">
+        <view class="nick">{{user.nickname}}</view>
+        <view class="muted">{{workspaceId}}</view>
+      </view>
+    </view>
+
+    <view class="card">
+      <text class="title">当前空间</text>
+      <view class="ws-wrap">
+        <workspace-switcher workspaces="{{workspaces}}" current-id="{{workspaceId}}" bindchange="onSwitchWs" />
+      </view>
+      <view class="members">
+        <view class="muted member-title">成员（{{members.length}}）</view>
+        <view wx:for="{{members}}" wx:key="openid" class="member">
+          <text>{{item.nickname}}</text>
+          <text class="muted">{{item.role}}</text>
+        </view>
+      </view>
+      <view class="link" bindtap="goWorkspace">家庭/空间管理 ›</view>
+    </view>
+
+    <view class="card">
+      <text class="title">统计</text>
+      <view class="row stats">
+        <view class="stat"><text class="stat-num">¥{{costTotal}}</text><text class="stat-label">菜谱成本</text></view>
+        <view class="stat"><text class="stat-num">{{caloriesTotal}}</text><text class="stat-label">热量kcal</text></view>
+        <view class="stat"><text class="stat-num">{{recipeCount}}</text><text class="stat-label">菜谱数</text></view>
+      </view>
+      <view class="link" bindtap="goRanking">查看排行榜 ›</view>
+    </view>
+
+    <view class="card">
+      <text class="title">数据</text>
+      <view class="link" bindtap="onBackup">数据备份（模拟导出）</view>
+      <view class="link">设置</view>
+    </view>
+  </view>
+</view>

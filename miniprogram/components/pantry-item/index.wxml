@@ -1,0 +1,14 @@
+<view wx:if="{{item}}" class="pi" bindtap="onTap">
+  <view class="row space-between">
+    <view>
+      <view class="pi-name">{{item.name}} <text wx:if="{{isExpiring}}" class="exp">临期</text></view>
+      <view class="pi-meta">{{item.location}} · {{item.reminderDays}}天内提醒</view>
+    </view>
+    <view class="pi-qty">{{item.totalQty}}{{item.unit}}</view>
+  </view>
+  <view class="row pi-lots" wx:if="{{showLots}}">
+    <view wx:for="{{item.lots}}" wx:key="id" class="lot-badge">
+      {{item.batchNo}} ×{{item.qty}}
+    </view>
+  </view>
+</view>

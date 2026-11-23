@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "空间管理",
+  "usingComponents": {
+    "workspace-switcher": "../../components/workspace-switcher/index",
+    "loading-state": "../../components/loading-state/index",
+    "empty-state": "../../components/empty-state/index"
+  }
+}

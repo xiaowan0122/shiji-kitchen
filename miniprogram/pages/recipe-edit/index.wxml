@@ -1,0 +1,115 @@
+<view class="page">
+  <loading-state show="{{loading}}" />
+  <view wx:if="{{!loading}}" class="edit">
+    <view class="cover-pick" bindtap="onChooseImage">
+      <image wx:if="{{form.coverUrl}}" src="{{form.coverUrl}}" mode="aspectFill" class="cover-img" />
+      <text wx:else class="cover-hint">＋ 选择菜品图片（本地预览）</text>
+    </view>
+
+    <view class="card">
+      <view class="field">
+        <text class="label">菜名 *</text>
+        <input class="input" placeholder="输入菜名" value="{{form.name}}" data-field="name" bindinput="onFormInput" />
+      </view>
+
+      <view class="field">
+        <text class="label">分类</text>
+        <picker range="{{categoryNames}}" value="{{categoryIndex}}" bindchange="onPublishCategory">
+          <view class="input picker">{{categoryNames[categoryIndex] || '选择分类'}}</view>
+        </picker>
+      </view>
+
+      <view class="row field gap">
+        <view class="grow">
+          <text class="label">份量(人)</text>
+          <input class="input" type="number" value="{{form.servings}}" bindinput="onServingsChange" />
+        </view>
+        <view class="grow">
+          <text class="label">备料(分)</text>
+          <input class="input" type="number" value="{{form.prepTime}}" data-field="prepTime" bindinput="onFormInput" />
+        </view>
+        <view class="grow">
+          <text class="label">烹饪(分)</text>
+          <input class="input" type="number" value="{{form.cookTime}}" data-field="cookTime" bindinput="onFormInput" />
+        </view>
+      </view>
+
+      <view class="row field gap">
+        <view class="grow">
+          <text class="label">难度</text>
+          <picker range="{{difficultyNames}}" value="{{difficultyIndex}}" bindchange="onPublishDifficulty">
+            <view class="input picker">{{difficultyNames[difficultyIndex]}}</view>
+          </picker>
+        </view>
+        <view class="grow">
+          <text class="label">等级</text>
+          <picker range="{{['1','2','3','4','5']}}" value="{{form.rating - 1}}" bindchange="onPublishRating">
+            <view class="input picker">{{form.rating}} 星</view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="field">
+        <text class="label">标签（空格分隔）</text>
+        <input class="input" placeholder="快手 下饭" value="{{form.tags}}" data-field="tags" bindinput="onFormInput" />
+      </view>
+
+      <view class="field">
+        <text class="label">备注</text>
+        <textarea class="input area" placeholder="制作要点或心得" value="{{form.note}}" data-field="note" bindinput="onFormInput" />
+      </view>
+    </view>
+
+    <view class="section-title row space-between">
+      <text class="title">配料</text>
+      <button class="btn btn-secondary sm" bindtap="onAddIngredient">＋ 添加</button>
+    </view>
+    <view class="card">
+      <view wx:for="{{ingredients}}" wx:key="key" class="ing-row">
+        <view class="row">
+          <input class="input grow" placeholder="名称" value="{{item.name}}" data-index="{{index}}" data-field="name" bindinput="onIngredientInput" />
+          <input class="input num" type="digit" value="{{item.amount}}" data-index="{{index}}" data-field="amount" bindinput="onIngredientInput" />
+          <input class="input unit" placeholder="单位" value="{{item.unit}}" data-index="{{index}}" data-field="unit" bindinput="onIngredientInput" />
+          <view class="del" data-index="{{index}}" bindtap="onRemoveIngredient">✕</view>
+        </view>
+        <view class="row opts">
+          <label class="opt">
+            <checkbox checked="{{item.optional}}" data-index="{{index}}" data-field="optional" bindchange="onIngredientInput" /> 可选
+          </label>
+          <label class="opt">
+            <checkbox checked="{{item.isPurchase}}" data-index="{{index}}" data-field="isPurchase" bindchange="onIngredientInput" /> 需购买
+          </label>
+        </view>
+      </view>
+    </view>
+
+    <view class="section-title row space-between">
+      <text class="title">步骤</text>
+      <button class="btn btn-secondary sm" bindtap="onAddStep">＋ 添加</button>
+    </view>
+    <view class="card">
+      <view wx:for="{{steps}}" wx:key="key" class="step-row">
+        <view class="row">
+          <text class="step-idx">{{index + 1}}</text>
+          <textarea class="input grow" auto-height placeholder="步骤描述" value="{{item.description}}" data-index="{{index}}" bindinput="onStepDescInput" />
+        </view>
+        <view class="row tool">
+          <input class="input num" type="number" placeholder="分钟" value="{{item.timerMin}}" data-index="{{index}}" bindinput="onStepTimerInput" />
+          <view class="tool-btn" data-index="{{index}}" bindtap="onStepUp">↑</view>
+          <view class="tool-btn" data-index="{{index}}" bindtap="onStepDown">↓</view>
+          <view class="del" data-index="{{index}}" bindtap="onRemoveStep">✕</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card row space-between">
+      <text class="muted">预计成本 ¥{{costPreview}}</text>
+      <text class="muted">热量 {{caloriesPreview}} kcal</text>
+    </view>
+
+    <view class="row actions">
+      <button class="btn btn-secondary grow" bindtap="onCancel">取消</button>
+      <button class="btn grow" bindtap="onSave">保存</button>
+    </view>
+  </view>
+</view>

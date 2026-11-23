@@ -1,0 +1,33 @@
+.si {
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+.box {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid var(--color-cream-deep);
+  margin-right: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 26rpx;
+}
+.box.checked {
+  background: var(--color-primary-deep);
+  border-color: var(--color-primary-deep);
+}
+.si-name {
+  font-size: 28rpx;
+}
+.si-name.done {
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+.si-amount {
+  color: var(--color-muted);
+  font-size: 22rpx;
+}

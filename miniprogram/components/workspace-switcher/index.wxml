@@ -1,0 +1,15 @@
+<view class="ws">
+  <view class="ws-current row space-between" bindtap="onToggle">
+    <text class="ws-name">{{currentName}}</text>
+    <text class="ws-arrow">{{open ? '▲' : '▼'}}</text>
+  </view>
+  <view class="ws-list" wx:if="{{open}}">
+    <view
+      wx:for="{{workspaces}}"
+      wx:key="id"
+      class="ws-item {{item.id === currentId ? 'active' : ''}}"
+      data-id="{{item.id}}"
+      bindtap="onPick"
+    >{{item.name}}</view>
+  </view>
+</view>

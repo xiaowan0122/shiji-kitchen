@@ -1,0 +1,10 @@
+{
+  "name": "shiji-kitchen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "食记 Kitchen 微信小程序（阶段1 UI + Mock）",
+  "scripts": {
+    "test": "node --loader ./scripts/ts-resolve-loader.mjs --experimental-strip-types tests/domain.test.mjs && node --loader ./scripts/ts-resolve-loader.mjs --experimental-strip-types tests/repository.test.mjs"
+  }
+}

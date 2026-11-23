@@ -1,0 +1,39 @@
+.mc {
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+.mc-type {
+  width: 80rpx;
+  flex-shrink: 0;
+  color: var(--color-primary-deep);
+  font-size: 24rpx;
+  font-weight: 600;
+}
+.mc-name {
+  font-size: 28rpx;
+}
+.mc-note {
+  color: var(--color-muted);
+  font-size: 22rpx;
+  margin-top: 4rpx;
+}
+.mc-status {
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 999rpx;
+}
+.status-planned,
+.status-requested {
+  background: var(--color-cream-deep);
+  color: var(--color-muted);
+}
+.status-cooking {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+.status-done {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}

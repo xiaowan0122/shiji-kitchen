@@ -1,6 +1,141 @@
+/* 食记 Kitchen 全局主题与通用样式 */
 page {
+  --color-primary: #A8C3A0;
+  --color-primary-deep: #7FA376;
+  --color-cream: #FAF7F0;
+  --color-cream-deep: #F2EDE3;
+  --color-accent: #EF8E3E;
+  --color-text: #3A3A3A;
+  --color-muted: #9A968E;
+  --color-danger: #D95A4B;
+  --color-white: #FFFFFF;
+  --radius-sm: 12rpx;
+  --radius-md: 20rpx;
+  --radius-lg: 28rpx;
+  --space-xs: 8rpx;
+  --space-sm: 16rpx;
+  --space-md: 24rpx;
+  --space-lg: 32rpx;
   height: 100%;
-  background: #ffffff;
-  color: #333333;
+  background: var(--color-cream);
+  color: var(--color-text);
   font-size: 28rpx;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+view, text, button, input, image {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  padding: var(--space-md);
+  overflow-x: hidden;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.muted {
+  color: var(--color-muted);
+  font-size: 24rpx;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  color: var(--color-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-deep);
+  color: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+  line-height: 1.2;
+}
+
+.btn:active {
+  opacity: 0.85;
+}
+
+.btn-secondary {
+  background: var(--color-cream-deep);
+  color: var(--color-text);
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--color-cream-deep);
+  color: var(--color-muted);
+  border-radius: 999rpx;
+  padding: 6rpx 16rpx;
+  font-size: 22rpx;
+  margin-right: 8rpx;
+}
+
+.section-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: var(--space-sm) 0;
+}
+
+.input {
+  background: var(--color-cream);
+  border-radius: var(--radius-sm);
+  padding: 16rpx 20rpx;
+  font-size: 28rpx;
+  color: var(--color-text);
+  border: 1rpx solid var(--color-cream-deep);
+}
+
+.divider {
+  height: 1rpx;
+  background: var(--color-cream-deep);
+  margin: var(--space-sm) 0;
 }

@@ -1,0 +1,63 @@
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--space-sm);
+}
+.nick {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.ws-wrap {
+  margin: var(--space-sm) 0;
+}
+.members {
+  margin-top: var(--space-sm);
+}
+.member-title {
+  margin-bottom: 8rpx;
+}
+.member {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid var(--color-cream-deep);
+}
+.link {
+  color: var(--color-primary-deep);
+  font-size: 26rpx;
+  padding: 16rpx 0;
+}
+.stats {
+  gap: var(--space-sm);
+  margin: var(--space-sm) 0;
+}
+.stat {
+  flex: 1;
+  background: var(--color-cream);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+}
+.stat-num {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--color-primary-deep);
+}
+.stat-label {
+  color: var(--color-muted);
+  font-size: 20rpx;
+}

@@ -1,0 +1,62 @@
+<view class="page">
+  <loading-state show="{{loading}}" />
+  <block wx:if="{{!loading && recipe}}">
+    <view class="cover {{recipe.coverUrl ? '' : 'placeholder'}}">
+      <image wx:if="{{recipe.coverUrl}}" src="{{recipe.coverUrl}}" mode="aspectFill" class="cover-img" />
+      <text wx:else class="cover-text">{{recipe.name}}</text>
+    </view>
+
+    <view class="head">
+      <view class="row space-between">
+        <text class="title">{{recipe.name}}</text>
+        <view class="fav {{recipe.isFavorite ? 'on' : ''}}" bindtap="onFav">{{recipe.isFavorite ? '♥' : '♡'}}</view>
+      </view>
+      <view class="tags">
+        <text class="tag">{{categoryName}}</text>
+        <text wx:for="{{recipe.tags}}" wx:key="*this" class="tag">{{item}}</text>
+      </view>
+      <view class="row space-between rating-row">
+        <rating-stars value="{{recipe.rating.average}}" count="{{recipe.rating.count}}" />
+        <view class="row">
+          <button class="btn btn-secondary sm" bindtap="onRate">评分</button>
+          <button class="btn btn-secondary sm" bindtap="onEdit">编辑</button>
+        </view>
+      </view>
+      <view class="meta row">
+        <text>备料 {{recipe.prepTime}}分</text>
+        <text>·</text>
+        <text>烹饪 {{recipe.cookTime}}分</text>
+        <text>·</text>
+        <text>难度 {{difficultyText}}</text>
+      </view>
+    </view>
+
+    <view class="card row space-between">
+      <view class="row">
+        <text class="muted">份量</text>
+        <quantity-selector value="{{servings}}" bindchange="onQtyChange" />
+        <text class="serving">人份</text>
+      </view>
+    </view>
+
+    <view class="row stats">
+      <view class="stat"><text class="stat-num">¥{{recipe.cost.total}}</text><text class="stat-label">成本/人均¥{{recipe.cost.perServing}}</text></view>
+      <view class="stat"><text class="stat-num">{{recipe.nutrition.calories}}</text><text class="stat-label">热量kcal</text></view>
+      <view class="stat"><text class="stat-num">{{recipe.nutrition.protein}}</text><text class="stat-label">蛋白g</text></view>
+    </view>
+
+    <view class="section-title"><text class="title">配料</text></view>
+    <view class="card"><ingredient-list ingredients="{{scaledIngredients}}" /></view>
+
+    <view class="section-title"><text class="title">步骤</text></view>
+    <view class="card"><step-list steps="{{recipe.steps}}" /></view>
+
+    <view class="card" wx:if="{{recipe.note}}">
+      <text class="title">备注</text>
+      <view class="muted note">{{recipe.note}}</view>
+    </view>
+
+    <button class="btn btn-block btn-accent start" bindtap="onStartCooking">开始烹饪</button>
+  </block>
+  <empty-state wx:if="{{!loading && !recipe}}" text="菜谱不存在或已删除" />
+</view>

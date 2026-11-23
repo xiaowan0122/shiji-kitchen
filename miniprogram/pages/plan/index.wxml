@@ -1,0 +1,40 @@
+<view class="page">
+  <loading-state show="{{loading}}" />
+  <view wx:if="{{!loading}}">
+    <calendar
+      year="{{year}}"
+      month="{{month}}"
+      selected="{{selected}}"
+      bindselect="onSelectDate"
+      bindprev="onCalPrev"
+      bindnext="onCalNext"
+    />
+    <view class="row space-between cal-actions">
+      <text class="sel-date">{{selected}}</text>
+      <button class="btn btn-secondary sm" bindtap="onToday">回到今天</button>
+    </view>
+
+    <view class="section-title"><text class="title">当天安排</text></view>
+    <view wx:for="{{daySlots}}" wx:key="type" class="slot">
+      <view class="slot-label">{{item.label}}</view>
+      <view class="grow">
+        <meal-card wx:if="{{item.item}}" item="{{item.item}}" />
+        <view wx:else class="slot-empty">未安排</view>
+      </view>
+      <view class="row slot-actions">
+        <view class="mini" data-index="{{index}}" bindtap="onAdd">安排</view>
+        <view class="mini accent" data-index="{{index}}" bindtap="onRequest">点菜</view>
+      </view>
+    </view>
+
+    <view class="section-title"><text class="title">本周计划</text></view>
+    <view wx:for="{{groups}}" wx:key="date" class="day-group" wx:for-item="g">
+      <view class="day-head">
+        <text class="day-date">{{g.date}}</text>
+        <text class="muted">周{{g.weekday}}</text>
+      </view>
+      <meal-card wx:for="{{g.items}}" wx:key="id" wx:for-item="mi" item="{{mi}}" />
+      <empty-state wx:if="{{g.items.length === 0}}" text="暂无安排" />
+    </view>
+  </view>
+</view>

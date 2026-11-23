@@ -1,0 +1,10 @@
+<view class="sl">
+  <view wx:for="{{steps}}" wx:key="seq" class="sl-step">
+    <view class="sl-num">{{item.seq}}</view>
+    <view class="grow">
+      <view class="sl-desc">{{item.description}}</view>
+      <view wx:if="{{item.timerMin}}" class="sl-timer">约 {{item.timerMin}} 分钟</view>
+      <image wx:if="{{item.imageUrl}}" class="sl-img" src="{{item.imageUrl}}" mode="aspectFill" />
+    </view>
+  </view>
+</view>

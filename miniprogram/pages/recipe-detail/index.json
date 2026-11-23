@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "菜谱",
+  "usingComponents": {
+    "rating-stars": "../../components/rating-stars/index",
+    "quantity-selector": "../../components/quantity-selector/index",
+    "ingredient-list": "../../components/ingredient-list/index",
+    "step-list": "../../components/step-list/index",
+    "loading-state": "../../components/loading-state/index",
+    "empty-state": "../../components/empty-state/index"
+  }
+}

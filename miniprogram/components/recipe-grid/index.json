@@ -1,0 +1,1 @@
+{ "component": true, "usingComponents": { "recipe-card": "../recipe-card/index", "empty-state": "../empty-state/index" } }

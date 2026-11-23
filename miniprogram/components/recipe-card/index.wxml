@@ -1,0 +1,19 @@
+<view class="rc" bindtap="onTap">
+  <view class="cover {{coverUrl ? '' : 'placeholder'}}">
+    <image wx:if="{{coverUrl}}" src="{{coverUrl}}" mode="aspectFill" />
+    <text wx:else>菜</text>
+    <view class="fav {{isFavorite ? 'on' : ''}}" catchtap="onFav">{{isFavorite ? '♥' : '♡'}}</view>
+  </view>
+  <view class="body">
+    <view class="rc-name">{{name}}</view>
+    <view class="rc-meta">
+      <text>{{timeMin}}分钟</text>
+      <text>·</text>
+      <text>{{servings}}人份</text>
+    </view>
+    <rating-stars value="{{rating}}" show-count="{{false}}" />
+    <view class="tags">
+      <text wx:for="{{tags}}" wx:key="*this" class="tag">{{item}}</text>
+    </view>
+  </view>
+</view>

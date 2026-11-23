@@ -1,3 +1,80 @@
 <view class="page">
-  <text>食记 Kitchen</text>
+  <loading-state show="{{loading}}" />
+
+  <view wx:if="{{!loading}}" class="home">
+    <view class="row space-between head">
+      <view class="grow">
+        <workspace-switcher workspaces="{{workspaces}}" current-id="{{workspaceId}}" bindchange="onSwitchWs" />
+        <view class="date muted">{{today}}</view>
+      </view>
+      <button class="btn btn-accent" bindtap="onAddRecipe">＋ 菜谱</button>
+    </view>
+
+    <view class="card">
+      <view class="row space-between">
+        <text class="title">今日菜单</text>
+        <text class="subtitle" bindtap="goPlan">查看计划</text>
+      </view>
+      <view wx:if="{{todayItems.length === 0}}" class="muted pad">今天还没有安排</view>
+      <meal-card wx:for="{{todayItems}}" wx:key="id" item="{{item}}" />
+    </view>
+
+    <view class="row stats">
+      <view class="stat">
+        <text class="stat-num">¥{{todayCost}}</text>
+        <text class="stat-label">今日成本</text>
+      </view>
+      <view class="stat">
+        <text class="stat-num">{{todayCalories}}</text>
+        <text class="stat-label">今日热量(kcal)</text>
+      </view>
+    </view>
+
+    <view class="section-title">
+      <text class="title">最近做过</text>
+      <text class="subtitle" bindtap="goRecipes">去菜谱</text>
+    </view>
+    <view class="grid2">
+      <recipe-card
+        wx:for="{{recentRecipes}}"
+        wx:key="id"
+        id="{{item.id}}"
+        name="{{item.name}}"
+        cover-url="{{item.coverUrl}}"
+        category-id="{{item.categoryId}}"
+        tags="{{item.tags}}"
+        rating="{{item.rating.average}}"
+        servings="{{item.servings}}"
+        time-min="{{item.prepTime + item.cookTime}}"
+        is-favorite="{{item.isFavorite}}"
+        bindopen="onOpenRecipe"
+      />
+    </view>
+
+    <view class="card">
+      <view class="row space-between">
+        <text class="title">提醒</text>
+        <text class="subtitle" bindtap="goKitchen">去厨房</text>
+      </view>
+      <view wx:if="{{expiring.length === 0 && pendingShopping.length === 0}}" class="muted pad">暂无提醒</view>
+      <view wx:if="{{expiring.length}}" class="remind">
+        <text class="remind-title">临期食材</text>
+        <text wx:for="{{expiring}}" wx:key="id" class="remind-item">{{item.name}} ×{{item.totalQty}}{{item.unit}}</text>
+      </view>
+      <view wx:if="{{pendingShopping.length}}" class="remind">
+        <text class="remind-title">待采购</text>
+        <text wx:for="{{pendingShopping}}" wx:key="id" class="remind-item">{{item.name}}</text>
+      </view>
+    </view>
+
+    <view class="section-title">
+      <text class="title">最近记录</text>
+      <text class="subtitle" bindtap="goKitchen">更多</text>
+    </view>
+    <empty-state wx:if="{{recentRecords.length === 0}}" text="还没有烹饪记录" />
+    <view wx:for="{{recentRecords}}" wx:key="id" class="record">
+      <text class="record-name">{{item.recipeName}}</text>
+      <text class="muted">{{item.date}}</text>
+    </view>
+  </view>
 </view>

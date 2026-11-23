@@ -1,3 +1,10 @@
 {
-  "navigationBarTitleText": "首页"
+  "navigationBarTitleText": "食记 Kitchen",
+  "usingComponents": {
+    "workspace-switcher": "../../components/workspace-switcher/index",
+    "recipe-card": "../../components/recipe-card/index",
+    "meal-card": "../../components/meal-card/index",
+    "loading-state": "../../components/loading-state/index",
+    "empty-state": "../../components/empty-state/index"
+  }
 }

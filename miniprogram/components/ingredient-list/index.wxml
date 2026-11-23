@@ -1,0 +1,7 @@
+<view class="il">
+  <view wx:for="{{ingredients}}" wx:key="index" class="row il-row">
+    <text class="grow il-name">{{item.name}}</text>
+    <text wx:if="{{item.optional}}" class="badge">可选</text>
+    <text class="il-amount">{{item.amount}}{{item.unit}}</text>
+  </view>
+</view>
