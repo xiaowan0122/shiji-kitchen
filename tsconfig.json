@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "strict": false,
+    "noEmit": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "types": [],
+    "lib": [
+      "ES2017"
+    ]
+  },
+  "include": [
+    "miniprogram/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "cloudfunctions",
+    "references"
+  ]
+}
